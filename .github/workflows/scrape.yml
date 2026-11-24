@@ -1,0 +1,70 @@
+name: Sběr cen peletek
+
+on:
+  schedule:
+    - cron: "15 5 * * *"   # denně 6:15 SEČ / 7:15 SELČ
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scraper/**", "sources.json", ".github/workflows/scrape.yml"]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: scrape
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Testy
+        run: python -m unittest discover -s scraper -v
+
+      - name: Stažení cen
+        run: python scraper/scrape.py
+
+      - name: Uložení dat
+        run: |
+          git config user.name "peletky-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "Beze změn."
+          else
+            git commit -m "Ceny $(date -u +%F)"
+            git push
+          fi
+
+      - name: Hlášení chyb do issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'EOF' > /tmp/report.md
+          import json, pathlib
+          p = pathlib.Path("data/last_run.json")
+          run = json.loads(p.read_text()) if p.exists() else {"results": {}}
+          bad = {k: v for k, v in run["results"].items() if not v.get("ok")}
+          if bad:
+              print("Při posledním běhu se nepodařilo načíst tyto zdroje:\n")
+              for k, v in bad.items():
+                  print(f"- `{k}`: {v.get('error')}")
+              print("\nOprav selektor nebo URL v `sources.json`.")
+          EOF
+          TITLE="Scraper: některé ceny se nepodařilo načíst"
+          NUM=$(gh issue list --state open --search "$TITLE in:title" --json number -q '.[0].number')
+          if [ -s /tmp/report.md ]; then
+            if [ -n "$NUM" ]; then gh issue edit "$NUM" --body-file /tmp/report.md
+            else gh issue create --title "$TITLE" --body-file /tmp/report.md; fi
+          elif [ -n "$NUM" ]; then
+            gh issue close "$NUM" --comment "Všechny zdroje se opět načítají."
+          fi
