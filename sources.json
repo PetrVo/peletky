@@ -169,7 +169,8 @@
       "kg": 1050,
       "url": "https://www.dufakamna.cz/drevni-pelety-royal-enplus-enplus-a1-paleta-1050-kg-10-6-kc-kg-kup-kamna-a-pelety-za-10-kc-kg",
       "extract": {
-        "method": "auto"
+        "method": "regex",
+        "pattern": "Naše cena s DPH\\s*([\\d\\s.,]+?)\\s*Kč"
       },
       "delivery": "na dotaz"
     },
@@ -181,7 +182,8 @@
       "kg": 15,
       "url": "https://www.dufakamna.cz/drevene-pelety-royal-pellets-en-plus-a1-sacek-15-kg-12-kc-kg-kusovy-prodej",
       "extract": {
-        "method": "auto"
+        "method": "regex",
+        "pattern": "Naše cena s DPH\\s*([\\d\\s.,]+?)\\s*Kč"
       },
       "delivery": "na dotaz"
     },

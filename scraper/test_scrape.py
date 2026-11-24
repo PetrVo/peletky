@@ -67,6 +67,15 @@ class Sources(unittest.TestCase):
         self.assertEqual(scrape.extract_price(self.OKPALIVA, src["okpaliva-paleta"]["extract"])[0], 13700)
         self.assertEqual(scrape.extract_price(self.OKPALIVA, src["okpaliva-odber"]["extract"])[0], 12180)
 
+    def test_dufa_pattern(self):
+        import json
+        cfg = json.loads(scrape.SOURCES.read_text(encoding="utf-8"))
+        src = {s["id"]: s for s in cfg["sources"]}
+        page = "<span>Ušetříte</span> <b>0 Kč s DPH</b><div>Naše cena s DPH</div><strong>12&nbsp;600 Kč</strong> /paleta"
+        self.assertEqual(scrape.extract_price(page, src["dufa-paleta"]["extract"])[0], 12600)
+        page = "<div>Naše cena s DPH</div>\n<strong>180 Kč</strong> /balík"
+        self.assertEqual(scrape.extract_price(page, src["dufa-pytel"]["extract"])[0], 180)
+
     def test_ids_unique(self):
         import json
         cfg = json.loads(scrape.SOURCES.read_text(encoding="utf-8"))
