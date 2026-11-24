@@ -278,7 +278,7 @@ def main(argv: list[str]) -> int:
     by_key = {(r["date"], r["source_id"]): r for r in rows}
     results = {}
     for src in config["sources"]:
-        if only and src["id"] not in only:
+        if src.get("disabled") or (only and src["id"] not in only):
             continue
         try:
             page = fetch(src["url"])
