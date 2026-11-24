@@ -1,5 +1,5 @@
 {
- "finished": "2026-11-24T08:22:05+00:00",
+ "finished": "2026-11-24T08:25:41+00:00",
  "results": {
   "ddl-paleta": {
    "ok": true,
@@ -20,10 +20,6 @@
    "ok": true,
    "price_t": 11933.0,
    "in_stock": false
-  },
-  "pilahvozdnice": {
-   "ok": false,
-   "error": "HTTPError: HTTP Error 404: Not Found"
   },
   "rvf-paleta": {
    "ok": true,
@@ -46,15 +42,25 @@
    "in_stock": true
   },
   "okpaliva-paleta": {
-   "ok": false,
-   "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
+   "ok": true,
+   "price_t": 13048.0,
+   "in_stock": null
+  },
+  "okpaliva-odber": {
+   "ok": true,
+   "price_t": 11600.0,
+   "in_stock": null
   },
   "bauhaus-pytel": {
    "ok": true,
    "price_t": 12267.0,
    "in_stock": true
   },
-  "dufa": {
+  "dufa-paleta": {
+   "ok": false,
+   "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
+  },
+  "dufa-pytel": {
    "ok": false,
    "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
   },

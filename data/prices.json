@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T08:22:05+00:00",
+ "updated": "2026-11-24T08:25:41+00:00",
  "products": {
   "lukapelet": "A1 EN+ Lukapelet SMRK",
   "mm_royal": "MM Royal dřevěné pelety A1"
@@ -75,6 +75,13 @@
    "url": "https://www.okpaliva.cz/drevene-pelety/drevene-pelety-royal-pellets-en-plus-a1-1050",
    "delivery": "v ceně, celá ČR"
   },
+  "okpaliva-odber": {
+   "shop": "OK paliva (odběr Žamberk)",
+   "product": "mm_royal",
+   "pack": "paleta",
+   "url": "https://www.okpaliva.cz/drevene-pelety/drevene-pelety-royal-pellets-en-plus-a1-1050",
+   "delivery": "osobní odběr Žamberk"
+  },
   "bauhaus-pytel": {
    "shop": "Bauhaus",
    "product": "mm_royal",
@@ -82,11 +89,18 @@
    "url": "https://www.bauhaus.cz/mm-royal-drevene-pelety-a1-21713886",
    "delivery": "neuvedena"
   },
-  "dufa": {
+  "dufa-paleta": {
    "shop": "Dufa kamna (Lanškroun)",
    "product": "mm_royal",
-   "pack": "?",
-   "url": "https://www.dufakamna.cz/drevni-pelety-a1",
+   "pack": "paleta",
+   "url": "https://www.dufakamna.cz/drevni-pelety-royal-enplus-enplus-a1-paleta-1050-kg-10-6-kc-kg-kup-kamna-a-pelety-za-10-kc-kg",
+   "delivery": "na dotaz"
+  },
+  "dufa-pytel": {
+   "shop": "Dufa kamna (Lanškroun)",
+   "product": "mm_royal",
+   "pack": "pytel",
+   "url": "https://www.dufakamna.cz/drevene-pelety-royal-pellets-en-plus-a1-sacek-15-kg-12-kc-kg-kusovy-prodej",
    "delivery": "na dotaz"
   },
   "cdp": {
@@ -118,10 +132,6 @@
    "price_t": 11933.0,
    "in_stock": false
   },
-  "pilahvozdnice": {
-   "ok": false,
-   "error": "HTTPError: HTTP Error 404: Not Found"
-  },
   "rvf-paleta": {
    "ok": true,
    "price_t": 13324.0,
@@ -143,15 +153,25 @@
    "in_stock": true
   },
   "okpaliva-paleta": {
-   "ok": false,
-   "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
+   "ok": true,
+   "price_t": 13048.0,
+   "in_stock": null
+  },
+  "okpaliva-odber": {
+   "ok": true,
+   "price_t": 11600.0,
+   "in_stock": null
   },
   "bauhaus-pytel": {
    "ok": true,
    "price_t": 12267.0,
    "in_stock": true
   },
-  "dufa": {
+  "dufa-paleta": {
+   "ok": false,
+   "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
+  },
+  "dufa-pytel": {
    "ok": false,
    "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
   },
@@ -287,6 +307,20 @@
    "price_bag": 193.0,
    "delivery_included": false,
    "url": "https://www.kohutovypaliva.cz/pelety/pelety-mm-royal-en-plus-a1/"
+  },
+  {
+   "date": "2026-11-24",
+   "source_id": "okpaliva-odber",
+   "shop": "OK paliva (odběr Žamberk)",
+   "product": "mm_royal",
+   "pack": "paleta",
+   "unit_kg": 1050.0,
+   "price": 12180.0,
+   "price_kg": 11.6,
+   "price_t": 11600.0,
+   "price_bag": 174.0,
+   "delivery_included": false,
+   "url": "https://www.okpaliva.cz/drevene-pelety/drevene-pelety-royal-pellets-en-plus-a1-1050"
   },
   {
    "date": "2026-11-24",
