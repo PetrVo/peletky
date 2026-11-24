@@ -1,34 +1,34 @@
 {
- "finished": "2026-11-24T08:00:00+00:00",
+ "finished": "2026-11-24T08:22:05+00:00",
  "results": {
   "ddl-paleta": {
    "ok": true,
    "price_t": 14267.0,
-   "in_stock": null
+   "in_stock": true
   },
   "havlicek-paleta": {
    "ok": true,
    "price_t": 15332.0,
-   "in_stock": null
+   "in_stock": true
   },
   "havlicek-pytel": {
    "ok": true,
    "price_t": 15267.0,
-   "in_stock": null
+   "in_stock": true
   },
   "ebesta-pytel": {
    "ok": true,
    "price_t": 11933.0,
-   "in_stock": null
+   "in_stock": false
   },
   "pilahvozdnice": {
    "ok": false,
-   "error": "zatím nestaženo"
+   "error": "HTTPError: HTTP Error 404: Not Found"
   },
   "rvf-paleta": {
    "ok": true,
    "price_t": 13324.0,
-   "in_stock": null
+   "in_stock": true
   },
   "kohut-paleta": {
    "ok": true,
@@ -42,29 +42,26 @@
   },
   "optimtop-paleta": {
    "ok": true,
-   "price_t": 13952.0,
-   "in_stock": null
+   "price_t": 13810.0,
+   "in_stock": true
   },
   "okpaliva-paleta": {
-   "ok": true,
-   "price_t": 13048.0,
-   "in_stock": null
+   "ok": false,
+   "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
   },
   "bauhaus-pytel": {
    "ok": true,
    "price_t": 12267.0,
-   "in_stock": null
+   "in_stock": true
   },
   "dufa": {
-   "ok": true,
-   "price_t": 12000.0,
-   "in_stock": null
+   "ok": false,
+   "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
   },
   "cdp": {
    "ok": true,
    "price_t": 13500.0,
-   "in_stock": null
+   "in_stock": true
   }
- },
- "note": "ruční výchozí záznam z průzkumu"
+ }
 }

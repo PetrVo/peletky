@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T08:00:00+00:00",
+ "updated": "2026-11-24T08:22:05+00:00",
  "products": {
   "lukapelet": "A1 EN+ Lukapelet SMRK",
   "mm_royal": "MM Royal dřevěné pelety A1"
@@ -101,31 +101,31 @@
   "ddl-paleta": {
    "ok": true,
    "price_t": 14267.0,
-   "in_stock": null
+   "in_stock": true
   },
   "havlicek-paleta": {
    "ok": true,
    "price_t": 15332.0,
-   "in_stock": null
+   "in_stock": true
   },
   "havlicek-pytel": {
    "ok": true,
    "price_t": 15267.0,
-   "in_stock": null
+   "in_stock": true
   },
   "ebesta-pytel": {
    "ok": true,
    "price_t": 11933.0,
-   "in_stock": null
+   "in_stock": false
   },
   "pilahvozdnice": {
    "ok": false,
-   "error": "zatím nestaženo"
+   "error": "HTTPError: HTTP Error 404: Not Found"
   },
   "rvf-paleta": {
    "ok": true,
    "price_t": 13324.0,
-   "in_stock": null
+   "in_stock": true
   },
   "kohut-paleta": {
    "ok": true,
@@ -139,28 +139,26 @@
   },
   "optimtop-paleta": {
    "ok": true,
-   "price_t": 13952.0,
-   "in_stock": null
+   "price_t": 13810.0,
+   "in_stock": true
   },
   "okpaliva-paleta": {
-   "ok": true,
-   "price_t": 13048.0,
-   "in_stock": null
+   "ok": false,
+   "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
   },
   "bauhaus-pytel": {
    "ok": true,
    "price_t": 12267.0,
-   "in_stock": null
+   "in_stock": true
   },
   "dufa": {
-   "ok": true,
-   "price_t": 12000.0,
-   "in_stock": null
+   "ok": false,
+   "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
   },
   "cdp": {
    "ok": true,
    "price_t": 13500.0,
-   "in_stock": null
+   "in_stock": true
   }
  },
  "rows": [
@@ -240,8 +238,8 @@
    "shop": "CDP",
    "product": "mm_royal",
    "pack": "kg",
-   "unit_kg": 1.0,
-   "price": 13.5,
+   "unit_kg": 1050.0,
+   "price": 14175.0,
    "price_kg": 13.5,
    "price_t": 13500.0,
    "price_bag": 202.0,
@@ -311,10 +309,10 @@
    "product": "mm_royal",
    "pack": "paleta",
    "unit_kg": 1050.0,
-   "price": 14650.0,
-   "price_kg": 13.95,
-   "price_t": 13952.0,
-   "price_bag": 209.0,
+   "price": 14500.0,
+   "price_kg": 13.81,
+   "price_t": 13810.0,
+   "price_bag": 207.0,
    "delivery_included": true,
    "url": "https://www.optimtop.cz/drevene-pelety-mm-royal-pellets-enplus-a1-1050-kg/"
   },
