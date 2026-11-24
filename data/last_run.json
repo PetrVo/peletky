@@ -1,5 +1,5 @@
 {
- "finished": "2026-11-24T08:25:41+00:00",
+ "finished": "2026-11-24T08:29:38+00:00",
  "results": {
   "ddl-paleta": {
    "ok": true,
@@ -57,12 +57,14 @@
    "in_stock": true
   },
   "dufa-paleta": {
-   "ok": false,
-   "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
+   "ok": true,
+   "price_t": 12000.0,
+   "in_stock": null
   },
   "dufa-pytel": {
-   "ok": false,
-   "error": "ScrapeError: cena nenalezena (JSON-LD, meta ani itemprop)"
+   "ok": true,
+   "price_t": 12000.0,
+   "in_stock": null
   },
   "cdp": {
    "ok": true,
