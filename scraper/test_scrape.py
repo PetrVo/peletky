@@ -55,6 +55,25 @@ class Extract(unittest.TestCase):
             scrape.extract_price("<html></html>", {})
 
 
+class Sources(unittest.TestCase):
+    OKPALIVA = ("<div>1 - 2 palety</div><b>13.700&nbsp;Kč</b> <span>13,05 Kč / Kg</span>"
+                "<p>cena včetně dopravy a DPH po celé ČR</p><div>11,60 Kč / Kg</div>"
+                "<b>12.180 Kč</b><p>cena při osobním odběru včetně DPH</p>")
+
+    def test_okpaliva_patterns(self):
+        import json
+        cfg = json.loads(scrape.SOURCES.read_text(encoding="utf-8"))
+        src = {s["id"]: s for s in cfg["sources"]}
+        self.assertEqual(scrape.extract_price(self.OKPALIVA, src["okpaliva-paleta"]["extract"])[0], 13700)
+        self.assertEqual(scrape.extract_price(self.OKPALIVA, src["okpaliva-odber"]["extract"])[0], 12180)
+
+    def test_ids_unique(self):
+        import json
+        cfg = json.loads(scrape.SOURCES.read_text(encoding="utf-8"))
+        ids = [s["id"] for s in cfg["sources"]]
+        self.assertEqual(len(ids), len(set(ids)))
+
+
 class Record(unittest.TestCase):
     src = {"id": "x", "shop": "S", "product": "mm_royal", "url": "u"}
 
