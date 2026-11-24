@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/vendor/chart.umd.js" defer></script>
   <script src="assets/app.js" defer></script>
+  <script src="assets/feedback.js" defer></script>
 </head>
 <body>
   <main class="viz-root">
@@ -41,6 +42,22 @@
       <p>Cena za tunu, pytel a kg je přepočet z ceny balení, ve kterém ji prodejce uvádí.
         „Doprava v ceně“ znamená, že nabídka už dopravu obsahuje; u ostatních se k ceně připočte doprava podle prodejce.
         Data: <a href="data/prices.csv">prices.csv</a> · zdroje: <a href="sources.json">sources.json</a></p>
+
+      <section class="feedback" aria-labelledby="fb-title">
+        <h2 id="fb-title">Zpětná vazba</h2>
+        <p>Chybí vám prodejce, nesedí cena, nebo máte nápad? Napište.</p>
+        <form id="feedback" novalidate>
+          <input type="text" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label>Jméno (nepovinné)<input type="text" name="name" autocomplete="name"></label>
+          <label>E-mail pro odpověď (nepovinné)<input type="email" name="email" autocomplete="email"></label>
+          <label>Zpráva<textarea name="message" rows="4" required></textarea></label>
+          <button type="submit">Odeslat</button>
+          <p id="fb-status" role="status"></p>
+        </form>
+      </section>
+
+      <p class="author">Autor: Petr Vostrý · <a href="mailto:petr@vostry.eu">petr@vostry.eu</a>
+        · <a href="https://github.com/PetrVo/peletky">zdrojový kód</a></p>
     </footer>
   </main>
 </body>
