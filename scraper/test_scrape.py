@@ -1,0 +1,77 @@
+import unittest
+
+import scrape
+
+
+class ParseNumber(unittest.TestCase):
+    def test_formats(self):
+        cases = {
+            "14 980 Kč": 14980,
+            "14\xa0980,50 Kč": 14980.5,
+            "14.980,50": 14980.5,
+            "14,980.50": 14980.5,
+            "14.980": 14980,
+            "13990": 13990,
+            "12,89 Kč / kg": 12.89,
+            "16099.00": 16099,
+            13535: 13535,
+        }
+        for text, want in cases.items():
+            self.assertAlmostEqual(scrape.parse_number(text), want, msg=repr(text))
+
+    def test_none(self):
+        self.assertIsNone(scrape.parse_number("bez ceny"))
+
+
+class Extract(unittest.TestCase):
+    def test_jsonld(self):
+        page = """<script type="application/ld+json">{"@context":"https://schema.org",
+        "@type":"Product","name":"x","offers":{"@type":"Offer","price":"184.00",
+        "priceCurrency":"CZK","availability":"https://schema.org/InStock"}}</script>"""
+        self.assertEqual(scrape.extract_price(page, {}), (184.0, True))
+
+    def test_jsonld_graph(self):
+        page = """<script type="application/ld+json">{"@graph":[{"@type":"WebPage"},
+        {"@type":"Product","offers":[{"@type":"Offer","price":13990,
+        "availability":"OutOfStock"}]}]}</script>"""
+        self.assertEqual(scrape.extract_price(page, {}), (13990.0, False))
+
+    def test_meta(self):
+        page = '<meta property="product:price:amount" content="16099">'
+        self.assertEqual(scrape.extract_price(page, {})[0], 16099.0)
+
+    def test_itemprop(self):
+        page = '<span itemprop="price" content="214,00">214 Kč</span>'
+        self.assertEqual(scrape.extract_price(page, {})[0], 214.0)
+
+    def test_regex(self):
+        page = "<p>Cena na paletě: <b>12,89&nbsp;Kč</b> / kg</p>"
+        got = scrape.extract_price(page, {"method": "regex",
+                                          "pattern": r"Cena na paletě:\s*([\d\s.,]+)\s*Kč"})
+        self.assertEqual(got[0], 12.89)
+
+    def test_missing(self):
+        with self.assertRaises(scrape.ScrapeError):
+            scrape.extract_price("<html></html>", {})
+
+
+class Record(unittest.TestCase):
+    src = {"id": "x", "shop": "S", "product": "mm_royal", "url": "u"}
+
+    def test_pallet(self):
+        r = scrape.make_record({**self.src, "pack": "paleta", "kg": 1050}, 14980, "2026-11-24")
+        self.assertEqual((r["price_t"], r["price_bag"], r["price_kg"]), ("14267", "214", "14.27"))
+
+    def test_unit_candidates(self):
+        r = scrape.make_record({**self.src, "pack": "?", "kg": [1050, 15, 1]}, 184, "d")
+        self.assertEqual((r["unit_kg"], r["pack"]), ("15", "pytel"))
+        r = scrape.make_record({**self.src, "pack": "?", "kg": [1050, 15, 1]}, 13.5, "d")
+        self.assertEqual((r["unit_kg"], r["pack"]), ("1", "kg"))
+
+    def test_implausible(self):
+        with self.assertRaises(scrape.ScrapeError):
+            scrape.make_record({**self.src, "kg": 1050}, 184, "d")
+
+
+if __name__ == "__main__":
+    unittest.main()

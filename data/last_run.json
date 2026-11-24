@@ -1,0 +1,70 @@
+{
+ "finished": "2026-11-24T08:00:00+00:00",
+ "results": {
+  "ddl-paleta": {
+   "ok": true,
+   "price_t": 14267.0,
+   "in_stock": null
+  },
+  "havlicek-paleta": {
+   "ok": true,
+   "price_t": 15332.0,
+   "in_stock": null
+  },
+  "havlicek-pytel": {
+   "ok": true,
+   "price_t": 15267.0,
+   "in_stock": null
+  },
+  "ebesta-pytel": {
+   "ok": true,
+   "price_t": 11933.0,
+   "in_stock": null
+  },
+  "pilahvozdnice": {
+   "ok": false,
+   "error": "zatím nestaženo"
+  },
+  "rvf-paleta": {
+   "ok": true,
+   "price_t": 13324.0,
+   "in_stock": null
+  },
+  "kohut-paleta": {
+   "ok": true,
+   "price_t": 12890.0,
+   "in_stock": null
+  },
+  "kohut-foukane": {
+   "ok": true,
+   "price_t": 11890.0,
+   "in_stock": null
+  },
+  "optimtop-paleta": {
+   "ok": true,
+   "price_t": 13952.0,
+   "in_stock": null
+  },
+  "okpaliva-paleta": {
+   "ok": true,
+   "price_t": 13048.0,
+   "in_stock": null
+  },
+  "bauhaus-pytel": {
+   "ok": true,
+   "price_t": 12267.0,
+   "in_stock": null
+  },
+  "dufa": {
+   "ok": true,
+   "price_t": 12000.0,
+   "in_stock": null
+  },
+  "cdp": {
+   "ok": true,
+   "price_t": 13500.0,
+   "in_stock": null
+  }
+ },
+ "note": "ruční výchozí záznam z průzkumu"
+}

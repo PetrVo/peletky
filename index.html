@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Porovnávač cen peletek</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/vendor/chart.umd.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <main class="viz-root">
+    <header>
+      <h1>Porovnávač cen peletek</h1>
+      <p class="muted">Ceny s DPH od českých prodejců, sbírané automaticky jednou denně.
+        <span id="updated"></span></p>
+      <div class="controls" role="group" aria-label="Jednotka ceny">
+        <span>Zobrazit cenu za:</span>
+        <button data-unit="price_t" aria-pressed="true">tunu</button>
+        <button data-unit="price_bag" aria-pressed="false">pytel 15 kg</button>
+        <button data-unit="price_kg" aria-pressed="false">kg</button>
+      </div>
+    </header>
+    <div id="products"></div>
+    <footer class="muted">
+      <p>Cena za tunu, pytel a kg je přepočet z ceny balení, ve kterém ji prodejce uvádí.
+        „Doprava v ceně“ znamená, že nabídka už dopravu obsahuje; u ostatních se k ceně připočte doprava podle prodejce.
+        Data: <a href="data/prices.csv">prices.csv</a> · zdroje: <a href="sources.json">sources.json</a></p>
+    </footer>
+  </main>
+</body>
+</html>
