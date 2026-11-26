@@ -1,5 +1,5 @@
 {
- "finished": "2026-11-25T15:34:44+00:00",
+ "finished": "2026-11-26T15:09:42+00:00",
  "results": {
   "ddl-paleta": {
    "ok": true,
@@ -7,12 +7,14 @@
    "in_stock": true
   },
   "havlicek-paleta": {
-   "ok": false,
-   "error": "HTTPError: HTTP Error 403: Forbidden"
+   "ok": true,
+   "price_t": 15332.0,
+   "in_stock": true
   },
   "havlicek-pytel": {
-   "ok": false,
-   "error": "HTTPError: HTTP Error 403: Forbidden"
+   "ok": true,
+   "price_t": 15267.0,
+   "in_stock": true
   },
   "ebesta-pytel": {
    "ok": true,
@@ -20,16 +22,19 @@
    "in_stock": false
   },
   "rvf-paleta": {
-   "ok": false,
-   "error": "HTTPError: HTTP Error 403: Forbidden"
+   "ok": true,
+   "price_t": 13324.0,
+   "in_stock": true
   },
   "kohut-paleta": {
-   "ok": false,
-   "error": "HTTPError: HTTP Error 403: Forbidden"
+   "ok": true,
+   "price_t": 12890.0,
+   "in_stock": null
   },
   "kohut-foukane": {
-   "ok": false,
-   "error": "HTTPError: HTTP Error 403: Forbidden"
+   "ok": true,
+   "price_t": 11890.0,
+   "in_stock": null
   },
   "optimtop-paleta": {
    "ok": true,
